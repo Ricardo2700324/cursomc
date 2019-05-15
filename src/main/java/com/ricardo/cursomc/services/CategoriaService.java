@@ -22,4 +22,10 @@ public class CategoriaService {
 		
 		return obj;
 	}
+	
+	//metodo para inserir a gategoria usando o repo.
+	public Categoria insert(Categoria obj) {
+		obj.setId(null);
+		return repo.save(obj);
+	}
 }
