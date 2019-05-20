@@ -2,6 +2,8 @@ package com.ricardo.cursomc.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -33,6 +35,7 @@ public class CategoriaService {
 	}
 
 	// metodo para inserir a gategoria usando o repo.
+	@Transactional
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return repo.save(obj);
