@@ -35,7 +35,6 @@ public class CategoriaService {
 	}
 
 	// metodo para inserir a gategoria usando o repo.
-	@Transactional
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return repo.save(obj);
