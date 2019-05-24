@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.ricardo.cursomc.services.DBService;
+import com.ricardo.cursomc.services.EmailService;
+import com.ricardo.cursomc.services.SmtpEmailService;
 
 @Configuration
 @Profile("dev")
@@ -16,18 +18,23 @@ public class DevConfig {
 
 	@Autowired
 	private DBService dbService;
-	
-	@Value("${spring.jpa.hibernate.ddl.auto}")
+
+	@Value("${spring.jpa.hibernate.ddl-auto}")
 	private String strategy;
-	
+
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
-		if(!"create".equals(strategy)) {
+		if (!"create".equals(strategy)) {
 			return false;
 		}
-		
+
 		dbService.instantiateTestDatabase();
 		return true;
-	} 
-	
+	}
+
+	@Bean
+	public EmailService emailService() {
+		return new SmtpEmailService();
+	}
+
 }
