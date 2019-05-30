@@ -33,6 +33,8 @@ public class ProdutoResource {
 			
 	}
 	
+
+	
 	//metodo para paginação de categorias
 		@RequestMapping(method = RequestMethod.GET)
 		public ResponseEntity<Page<ProdutoDTO>> findPage(
