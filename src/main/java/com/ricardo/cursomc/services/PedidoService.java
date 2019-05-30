@@ -5,6 +5,9 @@ import java.util.Date;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.ricardo.cursomc.domain.ItemPedido;
@@ -14,6 +17,7 @@ import com.ricardo.cursomc.domain.enums.EstadoPagamento;
 import com.ricardo.cursomc.repositories.ItemPedidoRepository;
 import com.ricardo.cursomc.repositories.PagamentoRepository;
 import com.ricardo.cursomc.repositories.PedidoRepository;
+import com.ricardo.cursomc.security.UserSS;
 import com.ricardo.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -72,4 +76,12 @@ public class PedidoService {
 		emailService.sendOrderConfirmationHtmlEmail(obj);
 		return obj;
 	}
+	/*
+	public Page<Pedido> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+		UserSS user = UsersService.authenticated();
+		
+		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
+		
+		
+	}*/
 }
