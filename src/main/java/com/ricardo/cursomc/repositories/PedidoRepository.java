@@ -11,8 +11,8 @@ import com.ricardo.cursomc.domain.Pedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Integer> {
 
-	/*
+	
 	  @org.springframework.transaction.annotation.Transactional(readOnly=true)
 	  Page<Pedido> findByCliente(Cliente cliente, Pageable pageRequest);
-	 */
+	 
 }
